@@ -23,12 +23,18 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 90%;
+  max-width: 600px;
   height: auto;
   min-height: 500px;
   margin: 40px auto;
   padding: 20px;
   border-radius: 25px 25px 70px 25px;
   background-color: hsl(0, 0%, 100%);
+}
+@media screen and (min-width: 1024px) {
+  .calculator-container {
+    padding: 40px;
+  }
 }
 .calculator-container__form {
   display: flex;
@@ -38,12 +44,22 @@ body {
   height: 40%;
   border-bottom: 1px solid hsl(0, 0%, 86%);
 }
+@media screen and (min-width: 1024px) {
+  .calculator-container__form {
+    height: 30%;
+  }
+}
 .calculator-container__form form {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   justify-items: center;
   gap: 15px;
+}
+@media screen and (min-width: 1024px) {
+  .calculator-container__form form {
+    max-width: 400px;
+  }
 }
 .calculator-container__form form div {
   display: flex;
@@ -76,6 +92,18 @@ body {
   font-size: 5.5rem;
   font-weight: bold;
 }
+@media screen and (min-width: 750px) {
+  .calculator-container__result {
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .calculator-container__result {
+    height: 70%;
+    align-items: start;
+    font-size: 7rem;
+  }
+}
 .calculator-container__result div {
   display: flex;
   height: 65px;
@@ -88,7 +116,7 @@ body {
   color: hsl(0, 0%, 8%);
 }
 
-.arrow {
+.arrow-button {
   display: flex;
   position: absolute;
   bottom: -30px;
@@ -99,10 +127,29 @@ body {
   height: 60px;
   background-color: hsl(259, 100%, 65%);
   border-radius: 50%;
+  border: none;
 }
-.arrow svg {
+@media screen and (min-width: 1024px) {
+  .arrow-button {
+    right: 0;
+    bottom: -40px;
+    width: 80px;
+    height: 80px;
+  }
+  .arrow-button:hover {
+    background-color: hsl(0, 0%, 8%);
+    cursor: pointer;
+  }
+}
+.arrow-button svg {
   width: 25.5px;
   height: 30.5px;
+}
+@media screen and (min-width: 1024px) {
+  .arrow-button svg {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .attribution-container {

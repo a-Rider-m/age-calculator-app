@@ -5,12 +5,16 @@
     flex-direction: column;
     justify-content: space-between;
     width: 90%;
+    max-width: 600px;
     height: auto;
     min-height: 500px;
     margin: 40px auto;
     padding: 20px;
     border-radius: 25px  25px 70px 25px;
     background-color: a.$white;
+    @include a.media-up(lg){
+      padding: 40px;
+    }
     &__form {
         display: flex;
         position: relative;
@@ -18,12 +22,18 @@
         justify-content: center;
         height: 40%;
         border-bottom: 1px solid a.$Light-grey;
+        @include a.media-up(lg){
+            height: 30%;
+        }
         form {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 1fr;
             justify-items: center;
             gap: 15px;
+            @include a.media-up(lg){
+                max-width: 400px;
+            }
             div {
                 display: flex;
                 flex-direction: column;
@@ -60,6 +70,14 @@
         justify-content: center;
         font-size: 5.5rem;
         font-weight: bold;
+        @include a.media-up(md){
+            align-items: center;
+        }
+        @include a.media-up(lg){
+            height: 70%;
+            align-items: start;
+            font-size: 7rem;
+        }
         div {
             display: flex;
             height: 65px;
@@ -74,7 +92,7 @@
     }
 }
 
-.arrow {
+.arrow-button {
     display: flex;
     position: absolute;
     bottom: -30px;
@@ -85,9 +103,24 @@
     height: 60px;
     background-color: a.$purple;
     border-radius: 50%;
+    border: none;
+    @include a.media-up(lg){
+        right: 0;
+        bottom: -40px;
+        width: 80px;
+        height: 80px;
+        &:hover {
+            background-color: a.$off-black;
+            cursor: pointer;
+        }
+    }
     svg {
         width: 25.5px;
         height: 30.5px;
+        @include a.media-up(lg){
+            width: 35px;
+            height: 35px;
+        }
     }
 }
 

@@ -8,6 +8,11 @@ $off-black: hsl(0, 0%, 8%);
 
 $primary-font: 'Poppins', sans-serif;
 
+$breakpoints: (
+    md: 750px,
+    lg: 1024px 
+);
+
 @mixin media-up($breakpoint) {
     @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
         @content;
