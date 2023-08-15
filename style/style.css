@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  background-color: hsl(0, 0%, 86%);
+}
+
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  height: auto;
+  min-height: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 25px 25px 70px 25px;
+  background-color: hsl(0, 0%, 100%);
+}
+.calculator-container__form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
+  border-bottom: 1px solid hsl(0, 0%, 86%);
+}
+.calculator-container__form form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  justify-items: center;
+  gap: 15px;
+}
+.calculator-container__form form div {
+  display: flex;
+  flex-direction: column;
+}
+.calculator-container__form form div label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: hsl(0, 1%, 44%);
+}
+.calculator-container__form form div input {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid hsl(0, 0%, 86%);
+}
+.calculator-container__form form div input:focus {
+  border: 1px solid hsl(259, 100%, 65%);
+  outline: none;
+}
+.calculator-container__result {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60%;
+  justify-content: center;
+  font-size: 5.5rem;
+  font-weight: bold;
+}
+.calculator-container__result div {
+  display: flex;
+  height: 65px;
+  gap: 3px;
+}
+.calculator-container__result div .number {
+  color: hsl(259, 100%, 65%);
+}
+.calculator-container__result div .text {
+  color: hsl(0, 0%, 8%);
+}
+
+.arrow {
+  display: flex;
+  position: absolute;
+  bottom: -30px;
+  place-items: center;
+  place-content: center;
+  align-self: center;
+  width: 60px;
+  height: 60px;
+  background-color: hsl(259, 100%, 65%);
+  border-radius: 50%;
+}
+.arrow svg {
+  width: 25.5px;
+  height: 30.5px;
+}
+
+.attribution-container {
+  font-size: 11px;
+  text-align: center;
+  justify-self: flex-end;
+}
+.attribution-container a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*# sourceMappingURL=style.css.map */

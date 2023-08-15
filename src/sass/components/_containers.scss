@@ -1,0 +1,102 @@
+@use '../abstracts/vars' as a;
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    height: auto;
+    min-height: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 25px  25px 70px 25px;
+    background-color: a.$white;
+    &__form {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        height: 40%;
+        border-bottom: 1px solid a.$Light-grey;
+        form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr;
+            justify-items: center;
+            gap: 15px;
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            div label {
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: a.$smokey-grey;
+            }
+
+            div input {
+                width: 100%;
+                height: 40px;
+                padding: 0 10px;
+                font-size: 1.8rem;
+                font-weight: bold;
+                border-radius: 5px;
+                border: 1px solid a.$Light-grey;
+            }
+
+            div input:focus {
+                border: 1px solid a.$purple;
+                outline: none;
+            }
+        }   
+    }
+    
+    &__result {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 60%;
+        justify-content: center;
+        font-size: 5.5rem;
+        font-weight: bold;
+        div {
+            display: flex;
+            height: 65px;
+            gap: 3px;
+        }
+        div .number {
+            color: a.$purple;
+        }
+        div .text {
+            color: a.$off-black;
+        }
+    }
+}
+
+.arrow {
+    display: flex;
+    position: absolute;
+    bottom: -30px;
+    place-items: center;
+    place-content: center;
+    align-self: center;
+    width: 60px;
+    height: 60px;
+    background-color: a.$purple;
+    border-radius: 50%;
+    svg {
+        width: 25.5px;
+        height: 30.5px;
+    }
+}
+
+
+.attribution-container { 
+    font-size: 11px; 
+    text-align: center; 
+    justify-self: flex-end;
+    a { 
+        color: hsl(228, 45%, 44%); 
+    }
+}

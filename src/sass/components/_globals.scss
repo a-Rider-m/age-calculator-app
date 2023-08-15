@@ -1,0 +1,21 @@
+@use '../abstracts/vars' as a;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: a.$primary-font;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    background-color: a.$Light-grey;
+}
