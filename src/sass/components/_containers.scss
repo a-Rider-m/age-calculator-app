@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 90%;
-    max-width: 600px;
+    max-width: 620px;
     height: auto;
     min-height: 500px;
     margin: 40px auto;
@@ -14,6 +14,7 @@
     background-color: a.$white;
     @include a.media-up(lg){
       padding: 40px;
+      border-radius: 25px  25px 130px 25px;
     }
     &__form {
         display: flex;
@@ -42,7 +43,6 @@
             div label {
                 font-size: 1.2rem;
                 font-weight: 600;
-                color: a.$smokey-grey;
             }
 
             div input {
@@ -52,12 +52,11 @@
                 font-size: 1.8rem;
                 font-weight: bold;
                 border-radius: 5px;
-                border: 1px solid a.$Light-grey;
             }
 
-            div input:focus {
-                border: 1px solid a.$purple;
-                outline: none;
+            div p {
+                margin-top: 10px;
+                font-size: 1.2rem;
             }
         }   
     }
@@ -91,39 +90,6 @@
         }
     }
 }
-
-.arrow-button {
-    display: flex;
-    position: absolute;
-    bottom: -30px;
-    place-items: center;
-    place-content: center;
-    align-self: center;
-    width: 60px;
-    height: 60px;
-    background-color: a.$purple;
-    border-radius: 50%;
-    border: none;
-    @include a.media-up(lg){
-        right: 0;
-        bottom: -40px;
-        width: 80px;
-        height: 80px;
-        &:hover {
-            background-color: a.$off-black;
-            cursor: pointer;
-        }
-    }
-    svg {
-        width: 25.5px;
-        height: 30.5px;
-        @include a.media-up(lg){
-            width: 35px;
-            height: 35px;
-        }
-    }
-}
-
 
 .attribution-container { 
     font-size: 11px; 

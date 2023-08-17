@@ -1,0 +1,23 @@
+@use '../abstracts/vars' as a;
+
+.error-text {
+    color: a.$light-red;
+}
+
+.normal-text {
+    color: a.$smokey-grey;
+}
+
+.error-state {
+    border: 1px a.$light-red solid;
+    color: a.$light-red;
+}
+
+.normal-state {
+    border: 1px solid a.$Light-grey;
+}
+
+.normal-state:focus {
+    border: 1px solid a.$purple;
+    outline: none;
+}

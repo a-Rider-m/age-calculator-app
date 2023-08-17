@@ -18,12 +18,49 @@ body {
   background-color: hsl(0, 0%, 86%);
 }
 
+.arrow-button {
+  display: flex;
+  position: absolute;
+  bottom: -30px;
+  place-items: center;
+  place-content: center;
+  align-self: center;
+  width: 60px;
+  height: 60px;
+  background-color: hsl(259, 100%, 65%);
+  border-radius: 50%;
+  border: none;
+}
+@media screen and (min-width: 1024px) {
+  .arrow-button {
+    right: 0;
+    bottom: -40px;
+    width: 80px;
+    height: 78px;
+  }
+  .arrow-button:hover {
+    background-color: hsl(0, 0%, 8%);
+    cursor: pointer;
+    transition: background-color 500ms linear;
+  }
+}
+.arrow-button svg {
+  width: 25.5px;
+  height: 30.5px;
+}
+@media screen and (min-width: 1024px) {
+  .arrow-button svg {
+    width: 35px;
+    height: 35px;
+  }
+}
+
 .calculator-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 90%;
-  max-width: 600px;
+  max-width: 620px;
   height: auto;
   min-height: 500px;
   margin: 40px auto;
@@ -34,6 +71,7 @@ body {
 @media screen and (min-width: 1024px) {
   .calculator-container {
     padding: 40px;
+    border-radius: 25px 25px 130px 25px;
   }
 }
 .calculator-container__form {
@@ -68,7 +106,6 @@ body {
 .calculator-container__form form div label {
   font-size: 1.2rem;
   font-weight: 600;
-  color: hsl(0, 1%, 44%);
 }
 .calculator-container__form form div input {
   width: 100%;
@@ -77,11 +114,10 @@ body {
   font-size: 1.8rem;
   font-weight: bold;
   border-radius: 5px;
-  border: 1px solid hsl(0, 0%, 86%);
 }
-.calculator-container__form form div input:focus {
-  border: 1px solid hsl(259, 100%, 65%);
-  outline: none;
+.calculator-container__form form div p {
+  margin-top: 10px;
+  font-size: 1.2rem;
 }
 .calculator-container__result {
   display: flex;
@@ -116,42 +152,6 @@ body {
   color: hsl(0, 0%, 8%);
 }
 
-.arrow-button {
-  display: flex;
-  position: absolute;
-  bottom: -30px;
-  place-items: center;
-  place-content: center;
-  align-self: center;
-  width: 60px;
-  height: 60px;
-  background-color: hsl(259, 100%, 65%);
-  border-radius: 50%;
-  border: none;
-}
-@media screen and (min-width: 1024px) {
-  .arrow-button {
-    right: 0;
-    bottom: -40px;
-    width: 80px;
-    height: 80px;
-  }
-  .arrow-button:hover {
-    background-color: hsl(0, 0%, 8%);
-    cursor: pointer;
-  }
-}
-.arrow-button svg {
-  width: 25.5px;
-  height: 30.5px;
-}
-@media screen and (min-width: 1024px) {
-  .arrow-button svg {
-    width: 35px;
-    height: 35px;
-  }
-}
-
 .attribution-container {
   font-size: 11px;
   text-align: center;
@@ -159,6 +159,28 @@ body {
 }
 .attribution-container a {
   color: hsl(228, 45%, 44%);
+}
+
+.error-text {
+  color: hsl(0, 100%, 67%);
+}
+
+.normal-text {
+  color: hsl(0, 1%, 44%);
+}
+
+.error-state {
+  border: 1px hsl(0, 100%, 67%) solid;
+  color: hsl(0, 100%, 67%);
+}
+
+.normal-state {
+  border: 1px solid hsl(0, 0%, 86%);
+}
+
+.normal-state:focus {
+  border: 1px solid hsl(259, 100%, 65%);
+  outline: none;
 }
 
 /*# sourceMappingURL=style.css.map */
