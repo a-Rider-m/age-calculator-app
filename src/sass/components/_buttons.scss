@@ -17,6 +17,7 @@
         bottom: -40px;
         width: 80px;
         height: 78px;
+        transition: background-color 500ms linear;
         &:hover {
             background-color: a.$off-black;
             cursor: pointer;

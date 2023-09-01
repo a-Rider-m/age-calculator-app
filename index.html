@@ -14,23 +14,23 @@
 <body>
   <div class="calculator-container">
     <div class="calculator-container__form">  
-      <form action="#">
+      <form id="form">
         <div>
-          <label class="normal-text" for="day">DAY</label>
-          <input class="normal-state" placeholder="DD" type="number" id="day">
-          <p class="error-text"></p>
+          <label id="label-day" class="normal-text" for="day">DAY</label>
+          <input class="dateimputs normal-state" placeholder="DD" type="number" id="day" maxlength="2">
+          <p id="error-text-day" class="error-text"></p>
         </div>
         <div>
-          <label class="normal-text" for="month">MONTH</label>
-          <input class="normal-state" placeholder="MM" type="number" id="month">
-          <p class="error-text"></p>
+          <label id="label-month" class="normal-text" for="month">MONTH</label>
+          <input class="dateimputs normal-state" placeholder="MM" type="number" id="month">
+          <p id="error-text-month" class="error-text"></p>
         </div>
         <div>
-          <label class="normal-text" for="year">YEAR</label>
-          <input class="normal-state" placeholder="YYYY" type="number" id="year">
-          <p class="error-text"></p>
+          <label id="label-year" class="normal-text" for="year">YEAR</label>
+          <input class="dateimputs normal-state" placeholder="YYYY" type="number" id="year">
+          <p id="error-text-year" class="error-text"></p>
         </div>
-        <button class="arrow-button">
+        <button id="arrow-button" class="arrow-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
         </button>
       </form>
