@@ -1,20 +1,50 @@
-const inputs = document.querySelectorAll(".dateimputs");
-const form = document.querySelector("#form");
-const arrowButton = document.querySelector("#arrow-button");
+const inputs = document.querySelectorAll('.dateimputs');
+const labels = document.querySelectorAll('.calculator-container__label');
+const form = document.querySelector('#form');
+const arrowButton = document.querySelector('#arrow-button');
 const currentDate = new Date(Date());
 
-arrowButton.addEventListener('click', calculateAge);
+arrowButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    let validForm = true;
+    let messagge = "";
+
+    inputs.forEach((input)=> {
+        if(!input.value) {
+            validForm = false;
+            messagge = "All fields are required";
+            input.classList.add('error-state');
+            input.classList.add('error-state');
+            labels.forEach((label)=> {
+                label.classList.add('error-text');
+            })
+        } else if (input.classList.contains('error-state')) {
+            validForm = false;
+            messagge = "Please, correct the field " + input.id;
+        }
+    })
+
+    if(!validForm) {
+        document.getElementById('error-text-form').textContent = messagge;
+    }
+
+    else {
+        document.getElementById('error-text-form').textContent = "";
+        calculateAge();
+    }
+});
 
 function validateForm(e) {
     switch(e.target.id) {
-        case "day":
-            validateField("day", "label-day","error-text-day" , e.target, 31, 2);
+        case 'day':
+            validateField('day', 'label-day','error-text-day' , e.target, 31, 2);
             break;
-        case "month":
-            validateField("month", "label-month","error-text-month", e.target, 12, 2);
+        case 'month':
+            validateField('month', 'label-month','error-text-month', e.target, 12, 2);
             break;
-        case "year":
-            validateField("year", "label-year","error-text-year", e.target, 2024, 4);
+        case 'year':
+            validateField('year', 'label-year','error-text-year', e.target, 2024, 4);
             break;
     }
 }
@@ -25,46 +55,46 @@ inputs.forEach((input) => {
 })
 
 function validateField(idName, labelId, textId, input, maxNumber, maxLength) {
-    
+     
     let currentYear =  currentDate.getFullYear();
 
     if(input.value.length === 0) {
-        document.getElementById(textId).textContent = "This field is required";
-        document.getElementById(idName).classList.add("error-state");
-        document.getElementById(labelId).classList.add("error-text");
+        document.getElementById(textId).textContent = 'This field is required';
+        document.getElementById(idName).classList.add('error-state');
+        document.getElementById(labelId).classList.add('error-text');
     } 
     
     else if(input.value.length > maxLength || input.value > maxNumber) {
         document.getElementById(textId).textContent = `Must be a valid ${idName}`;
-        document.getElementById(idName).classList.add("error-state");
-        document.getElementById(labelId).classList.add("error-text");
+        document.getElementById(idName).classList.add('error-state');
+        document.getElementById(labelId).classList.add('error-text');
         input.value = input.value.slice(0, maxLength); 
     } 
     
     else if(input.value > currentYear) {
-        document.getElementById(textId).textContent = "Must be in the past";
-        document.getElementById(idName).classList.add("error-state");
-        document.getElementById(labelId).classList.add("error-text");
+        document.getElementById(textId).textContent = 'Must be in the past';
+        document.getElementById(idName).classList.add('error-state');
+        document.getElementById(labelId).classList.add('error-text');
     } 
     
     else {
-        document.getElementById(textId).textContent = "";
-        document.getElementById(idName).classList.remove("error-state");
-        document.getElementById(labelId).classList.remove("error-text");
+        document.getElementById(textId).textContent = '';
+        document.getElementById(idName).classList.remove('error-state');
+        document.getElementById(labelId).classList.remove('error-text');
     }
 }
 
-function calculateAge(e) {
-    e.preventDefault();
+function calculateAge() {
+   
     const currentYear = currentDate.getFullYear();
 
     //Le sumo 1, porque JS cuenta en base a 0, enero == mes 0;
     const currentMonth = currentDate.getMonth() + 1;
     const currentDay = currentDate.getDate();
 
-    const birthYear = Number(document.getElementById("year").value);
-    const birthMonth = Number(document.getElementById("month").value) ;
-    const birthDay = Number(document.getElementById("day").value);
+    const birthYear = Number(document.getElementById('year').value);
+    const birthMonth = Number(document.getElementById('month').value) ;
+    const birthDay = Number(document.getElementById('day').value);
 
     let years = calculateYears();
     let months = calculateMonths();
@@ -114,7 +144,7 @@ function calculateAge(e) {
         
     }
 
-    document.getElementById("resultYears").textContent = years;
-    document.getElementById("resultMonths").textContent = months;
-    document.getElementById("resultDays").textContent = days;
+    document.getElementById('resultYears').textContent = years;
+    document.getElementById('resultMonths').textContent = months;
+    document.getElementById('resultDays').textContent = days;
 }
