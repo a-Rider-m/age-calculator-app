@@ -1,6 +1,9 @@
 const inputs = document.querySelectorAll(".dateimputs");
 const form = document.querySelector("#form");
 const arrowButton = document.querySelector("#arrow-button");
+const currentDate = new Date(Date());
+
+arrowButton.addEventListener('click', calculateAge);
 
 function validateForm(e) {
     switch(e.target.id) {
@@ -51,18 +54,17 @@ function validateField(idName, labelId, textId, input, maxNumber, maxLength) {
     }
 }
 
-function calculateAge() {
-    const currentDate = new Date(Date());
+function calculateAge(e) {
+    e.preventDefault();
     const currentYear = currentDate.getFullYear();
 
-    //Le sumo 1, porque hoy 1 de septiembre me lo registra como mes 8
+    //Le sumo 1, porque JS cuenta en base a 0, enero == mes 0;
     const currentMonth = currentDate.getMonth() + 1;
     const currentDay = currentDate.getDate();
 
-    console.log(currentMonth);
-    const birthYear = 2005;
-    const birthMonth = 4;
-    const birthDay = 30;
+    const birthYear = Number(document.getElementById("year").value);
+    const birthMonth = Number(document.getElementById("month").value) ;
+    const birthDay = Number(document.getElementById("day").value);
 
     let years = calculateYears();
     let months = calculateMonths();
@@ -112,9 +114,7 @@ function calculateAge() {
         
     }
 
-    console.log(years);
-    console.log(months);
-    console.log(days);
+    document.getElementById("resultYears").textContent = years;
+    document.getElementById("resultMonths").textContent = months;
+    document.getElementById("resultDays").textContent = days;
 }
-
-calculateAge();
