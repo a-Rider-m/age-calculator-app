@@ -4,6 +4,9 @@ const form = document.querySelector('#form');
 const arrowButton = document.querySelector('#arrow-button');
 const currentDate = new Date(Date());
 
+//Puedo convertir esta arrowfunction en una funtion normal, para poder agregarle un escuchador
+//a la tecla Enter, y así hacer más accesible mi código
+
 arrowButton.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -36,9 +39,21 @@ arrowButton.addEventListener('click', (e) => {
 });
 
 function validateForm(e) {
+    
+    const inputMonth =  Number(document.getElementById('month').value);
+    let maxDays = 0; 
+
+    if(inputMonth === 4 || inputMonth === 6 || inputMonth === 9 || inputMonth === 11) {
+        maxDays = 30;
+    } else if(inputMonth === 2) {
+        maxDays = 28;
+    } else {
+        maxDays = 31;
+    }
+
     switch(e.target.id) {
         case 'day':
-            validateField('day', 'label-day','error-text-day' , e.target, 31, 2);
+            validateField('day', 'label-day','error-text-day' , e.target, maxDays, 2);
             break;
         case 'month':
             validateField('month', 'label-month','error-text-month', e.target, 12, 2);
@@ -93,7 +108,7 @@ function calculateAge() {
     const currentDay = currentDate.getDate();
 
     const birthYear = Number(document.getElementById('year').value);
-    const birthMonth = Number(document.getElementById('month').value) ;
+    const birthMonth = Number(document.getElementById('month').value);
     const birthDay = Number(document.getElementById('day').value);
 
     let years = calculateYears();
